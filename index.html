@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="circle circle_one">1</div>
+    <div class="circle circle_two">1</div>
+    <div class="circle circle_three">1</div>
+    <div class="circle circle_four">1</div>
+    <div class="circle circle_five">1</div>
+    <div class="main_div" id="main_div">
+        <div class="output">
+            <input id="input_box" />
+        </div>
+        <div class="numbers">
+            <div class="four_buttons">
+                <div class="button" onclick="clear_string()">AC</div>
+                <div class="button" onclick="remove_itemp()">
+                    <-</div>
+                        <div class="button">%</div>
+                        <div class="button">/</div>
+                </div>
+                <div class="four_buttons">
+                    <div class="button" onclick="setInputBox(7)">7</div>
+                    <div class="button" onclick="setInputBox(8)">8</div>
+                    <div class="button" onclick="setInputBox(9)">9</div>
+                    <div class="button" onclick="setInputBox('*')">X</div>
+                </div>
+                <div class="four_buttons">
+                    <div class="button" onclick="setInputBox(4)">4</div>
+                    <div class="button" onclick="setInputBox(5)">5</div>
+                    <div class="button" onclick="setInputBox(6)">6</div>
+                    <div class="button" onclick="setInputBox('-')">-</div>
+                </div>
+                <div class="four_buttons">
+                    <div class="button" onclick="setInputBox(1)">1</div>
+                    <div class="button" onclick="setInputBox(2)">2</div>
+                    <div class="button" onclick="setInputBox(3)">3</div>
+                    <div class="button" onclick="setInputBox('+')">+</div>
+                </div>
+                <div class="four_buttons">
+                    <div class="button" onclick="setInputBox(1)">#</div>
+                    <div class="button" onclick="setInputBox(0)">0</div>
+                    <div class="button" onclick="setInputBox('.')">.</div>
+                    <div class="button" onclick="calculate()">=</div>
+                </div>
+            </div>
+        </div>
+</body>
+
+<script>
+    const input_box = document.getElementById("input_box");
+    const main_div = document.getElementById("main_div")
+    main_div.style.top = "50%"
+    const setInputBox = (value) => {
+        input_box.value += `${value}`;
+    }
+
+    const remove_itemp = () => {
+        let stringThing = input_box.value;
+        input_box.value = stringThing.substring(0, stringThing.length - 1);
+
+    }
+
+    const clear_string = () => {
+        input_box.value = ""
+    }
+
+
+    const calculate = () => {
+        let finalValue = eval(input_box.value);
+        input_box.value = finalValue;
+
+    }
+</script>
+
+</html>
